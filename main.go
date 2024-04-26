@@ -96,6 +96,12 @@ func main() {
 		}
 	})
 
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // Default port
+	}
+
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 	// Start HTTP server
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	//log.Fatal(http.ListenAndServe(":8080", nil))
 }
