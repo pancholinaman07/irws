@@ -1,15 +1,12 @@
 package utils
 
-// Index is an inverted index. It maps tokens to document IDs.
 type Index map[string][]int
 
-// add adds documents to the Index.
 func (idx Index) Add(docs []document) {
 	for _, doc := range docs {
 		for _, token := range analyze(doc.Text) {
 			ids := idx[token]
 			if ids != nil && ids[len(ids)-1] == doc.ID {
-				// Don't add same ID twice.
 				continue
 			}
 			idx[token] = append(ids, doc.ID)

@@ -6,7 +6,6 @@ import (
 	snowballeng "github.com/kljensen/snowball/english"
 )
 
-// lowercaseFilter returns a slice of tokens normalized to lower case.
 func lowercaseFilter(tokens []string) []string {
 	r := make([]string, len(tokens))
 	for i, token := range tokens {
@@ -30,7 +29,6 @@ func stopwordFilter(tokens []string) []string {
 	return r
 }
 
-// stemmerFilter returns a slice of stemmed tokens.
 func stemmerFilter(tokens []string) []string {
 	r := make([]string, len(tokens))
 	for i, token := range tokens {
